@@ -1,0 +1,29 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        MinHeight="600" MinWidth = "600"  MaxHeight="600" MaxWidth = "600" 
+        x:Class="DaripProgrammaUP.Window.AddPatient"
+        Title="Создание пациента">
+ <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment = "Center"  Margin="2">
+          
+
+                <TextBlock Text="имя:" />
+                <TextBox x:Name="TBoxFirstName" Width="250" />
+                     <TextBlock Text="Фамилия:" />
+                <TextBox x:Name="TBoxLastName" Width="250" />
+                     <TextBlock Text="Отчество:" />
+                <TextBox x:Name="TBoxPatronymic" Width="250" />
+                     <TextBlock Text="Номер телефона:" />
+                <TextBox x:Name="TBoxPhoneNumber" Width="250" />
+                     <TextBlock Text="Дата рождения:" />
+                <DatePicker x:Name="DPicerDateBirth" Width="250" />
+
+                
+                
+                <Button x:Name="BtnSavet" HorizontalAlignment="Center" Margin="5"
+                        Click="BtnSavet_OnClick"
+                        Content="Сохранить" />
+            </StackPanel>
+</Window>

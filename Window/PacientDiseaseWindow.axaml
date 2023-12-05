@@ -1,0 +1,62 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        xmlns:models="clr-namespace:DaripProgrammaUP.DateBase"
+        MinHeight="600" MinWidth = "1600"  MaxHeight="600" MaxWidth = "1600" 
+        x:Class="DaripProgrammaUP.Window.PacientDiseaseWindow"
+        Title="Список пациентов">
+ <Grid ColumnDefinitions="3*,1*">
+
+         <DataGrid Grid.Column="0"  x:Name="DataGrid"
+                           AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           GridLinesVisibility="All"
+                           BorderThickness="2" SelectionChanged="DataGrid_OnSelectionChanged"
+                           Margin="0,20" 
+                           x:DataType="models:DiseaseRecord">
+                 <DataGrid.Columns>
+                     <DataGridTextColumn Width="*" Header="Пациент" Binding="{Binding OutputPatientFIO}"/>
+                     <DataGridTextColumn Width="*" Header="Цена" Binding="{Binding FinalPrice}"/>
+                     <DataGridTextColumn Width="*" Header="Начало" Binding="{Binding DateStart}"/>
+                     <DataGridTextColumn Width="*" Header="Окончание" Binding="{Binding DateEnd}"/>
+                     <DataGridTextColumn Width="*" Header="Статус" Binding="{Binding OutputStatusName}"/>
+                     <DataGridTextColumn Width="*" Header="Врач" Binding="{Binding OutputDoctorFIO}"/>
+                     <DataGridTextColumn Width="*" Header="Заболевание" Binding="{Binding OutputDiseaseName}"/>
+
+                 </DataGrid.Columns>
+             </DataGrid>
+        
+       
+            <StackPanel Grid.Column="1"  HorizontalAlignment = "Center" Margin="5">
+
+                     
+                <TextBlock Text="Поиск:" Margin="0,0,0,0"  HorizontalAlignment="Center"/>
+             
+                <TextBox x:Name="SearchBox" 
+                         Margin="5" Text="" TextChanged="SearchBox_OnTextChanged"
+                         Width="250"/>
+                <Button x:Name="ResetBtn"
+                        Click="ResetBtn_OnClick"
+                        Content="Отчистить" HorizontalAlignment="Center"/>
+                
+                <TextBlock Text="Действия:" Margin="0,200,0,0" HorizontalAlignment="Center"/>
+                <Button x:Name="BtnAdd"
+                        Click="BtnAdd_OnClick" Width="250" HorizontalContentAlignment="Center"
+                        Content="Создать запись" Margin="5"/>  
+                <Button x:Name="BtnEdit"
+                        Click="BtnEdit_OnClick" Width="250" HorizontalContentAlignment="Center"
+                        Content="Изменить данные" Margin="5"/>  
+                <Button x:Name="BtnAddPatient"
+                        Click="BtnAddPatient_OnClick" Width="250" HorizontalContentAlignment="Center"
+                        Content="Зарегистрировать пациента" Margin="5"/>  
+                <Button x:Name="BtnDelet" Margin="5"
+                        Click="BtnDelet_OnClick" Width="250" HorizontalContentAlignment="Center"
+                        Content="Удалить"/>
+
+               
+            </StackPanel>
+        </Grid>
+
+</Window>

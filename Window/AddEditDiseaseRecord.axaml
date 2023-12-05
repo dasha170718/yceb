@@ -1,0 +1,65 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        xmlns:models="clr-namespace:DaripProgrammaUP.DateBase"
+        MinHeight="600" MinWidth = "1600"  MaxHeight="600" MaxWidth = "1600" 
+        x:Class="DaripProgrammaUP.Window.AddEditDiseaseRecord"
+        Title="Редактирование">
+            <StackPanel  HorizontalAlignment = "Center"  Margin="2">
+
+                <TextBlock Text="Пациент:"/>
+                <ComboBox x:Name="CBoxPatient" Width="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:Patient">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding FirstName}"/>
+                                <TextBlock Text="{Binding LastName}"/> 
+                                <TextBlock Text="{Binding Patronymic}"/> 
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Итоговая цена:" />
+                <NumericUpDown x:Name="NUpDownFinalPrice" Width="250"/>
+                <TextBlock Text="Дата начала:"  />
+                <DatePicker x:Name="DPickerDateStart" Width="250" />
+                <TextBlock Text="Дата окончания:" />
+                <DatePicker x:Name="DPickerDateEnd" Width="250"/>
+                <TextBlock Text="Статус:"/>
+                <ComboBox x:Name="CBoxStatus" Width="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:Status">
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Лечащий врач:"/>
+                <ComboBox x:Name="CBoxAttendingDoctor" Width="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:Doctor">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding FirstName}"/>
+                                <TextBlock Text="{Binding LastName}"/> 
+                                <TextBlock Text="{Binding Patronymic}"/> 
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Болезнь:"/>
+                <ComboBox x:Name="CBoxDisease" Width="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:Disease">
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                
+                
+                
+                <Button x:Name="BtnSavet" HorizontalAlignment="Center" Margin="5"
+                        Click="BtnSavet_OnClick"
+                        Content="Сохранить" />
+            </StackPanel>
+</Window>

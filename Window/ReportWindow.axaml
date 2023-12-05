@@ -1,0 +1,82 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        xmlns:models="clr-namespace:DaripProgrammaUP.DateBase"
+        MinHeight="600" MinWidth = "600"  MaxHeight="600" MaxWidth = "600" 
+        x:Class="DaripProgrammaUP.Window.ReportWindow"
+        Title="Генератор отчётов">
+     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+            <TextBlock Text="Настройки:" Margin="5" HorizontalAlignment="Center"/>
+            
+                   <TextBlock Text="Период от:"/>
+                    <DatePicker x:Name="DPicerStart"/>
+                   <TextBlock Text="до:"/>
+                    <DatePicker x:Name="DPicerEnd"/>
+                   <TextBlock Text="Необезательные фильтры" Margin="0,20,0,5"/>
+                   
+                   <TextBlock Text="Врач:"/>
+                   <StackPanel Orientation="Horizontal">
+                       <ComboBox x:Name="CBoxDoctor" Width="250">
+                           <ComboBox.ItemTemplate>
+                               <DataTemplate x:DataType="models:Doctor">
+                                   <StackPanel Orientation="Horizontal">
+                                       <TextBlock Text="{Binding FirstName}"/>
+                                       <TextBlock Text="{Binding LastName}"/> 
+                                       <TextBlock Text="{Binding Patronymic}"/> 
+                                   </StackPanel>
+                               </DataTemplate>
+                           </ComboBox.ItemTemplate>  
+                       </ComboBox>
+                       <Button x:Name="BtnDoctorClear" Content="Сброс"
+                               Click="BtnDoctorClear_OnClick"/>
+                   </StackPanel>
+                   <TextBlock Text="Пациент:"/>
+                   <StackPanel Orientation="Horizontal">
+                       <ComboBox x:Name="CBoxPatient" Width="250">
+                           <ComboBox.ItemTemplate>
+                               <DataTemplate x:DataType="models:Patient">
+                                   <StackPanel Orientation="Horizontal">
+                                       <TextBlock Text="{Binding FirstName}"/>
+                                       <TextBlock Text="{Binding LastName}"/> 
+                                       <TextBlock Text="{Binding Patronymic}"/> 
+                                   </StackPanel>
+                               </DataTemplate>
+                           </ComboBox.ItemTemplate> 
+                       </ComboBox>
+                       <Button x:Name="BtnPatientClear" Content="Сброс" 
+                               Click="BtnPatientClear_OnClick"/>
+                   </StackPanel>
+                   <TextBlock Text="Статус:"/>
+                   <StackPanel Orientation="Horizontal">
+                       <ComboBox x:Name="CBoxStatus" Width="250">
+                           <ComboBox.ItemTemplate>
+                               <DataTemplate x:DataType="models:Status">
+                                  
+                                       <TextBlock Text="{Binding Name}"/>
+            
+                               </DataTemplate>
+                           </ComboBox.ItemTemplate> 
+                       </ComboBox>
+                       <Button x:Name="BtnStatusClear" Content="Сброс"
+                               Click="BtnStatusClear_OnClick"/> 
+
+                   </StackPanel>
+                   <Button x:Name="BtnReset" Margin="5" HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                           Click="BtnReset_OnClick" Width="200" 
+                           Content="Сбросить" />
+
+
+                   <Button x:Name="BtnGenerate"  Margin="5" HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                           Click="BtnGenerate_OnClick" Width="200"
+                           Content="Сгенерировать" />
+            
+
+               
+            
+
+        </StackPanel>
+</Window>
